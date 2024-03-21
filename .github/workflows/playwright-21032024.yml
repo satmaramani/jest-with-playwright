@@ -15,8 +15,18 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    
+    - name: Install JEST      
+      run: npm install --save-dev jest
+
+    - name : Install Playwright Latest 
+      run : npm install --save-dev playwright@latest
+    
+    - name :  install Playwright test runner also 
+      run : npm install --save-dev @playwright/test
+      
+    - name: Run JEST command to run tests
+      run: npx jest
     - uses: actions/upload-artifact@v4
       if: always()
       with:
